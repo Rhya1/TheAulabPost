@@ -13,45 +13,66 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         
-        @guest
-        
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('register')}}">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('login')}}">Login</a>
-        </li>
-        
-        @else
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{Auth::user()->name}}
+            Categorie
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#" 
-              onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
-              <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">@csrf</form>
+            @foreach ($categories as $category)
+            <li><a class="dropdown-item" href="{{route('article.byCategory', compact ('category'))}}">{{$category->name}}</a></li>
+            @endforeach
+          </ul>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ordina
+            </a>
+          <ul class="dropdown-menu">
+            <li class="nav-link"><a href="{{route('article.byNew')}}">Newest</a>
+            </li>
+            <li class="nav-link"><a href="{{route('article.byOld')}}">Oldest</a>
             </li>
           </ul>
+          
+          @guest
+          
           <li class="nav-item">
-            <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
+            <a class="nav-link" href="{{route('register')}}">Register</a>
           </li>
-        </li>
-        
-        @endguest
-        
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('login')}}">Login</a>
+          </li>
+          
+          @else
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{Auth::user()->name}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" 
+                onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">@csrf</form>
+              </li>
+            </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
+            </li>
+          </li>
+          
+          @endguest
+          
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>

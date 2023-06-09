@@ -1,19 +1,10 @@
 <x-layout>
     
-    <div class="container-fluid p-5 mt-5 text-center">
+    <div class="container-fluid mt-5 p-5 text-center">
         <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <h1 class="display-1">The Aulab Post</h1>
-            </div>
+            <h1>Ordine per categoria</h1>
         </div>
     </div>
-    
-    <div>
-        @if (session('message'))
-        <div class="alert alert-success text-center" role="alert">{{session('message')}}</div>
-        @endif
-    </div>
-    
     <div class="container col-4">
         <div class="row">
             @foreach ($articles as $article)
@@ -32,7 +23,7 @@
                     <div class="text-muted">
                         Redatto il {{$article->created_at->format('d/m/y')}} da {{$article->user->name}}
                     </div>
-                    <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary mt-3">Leggi</a>            
+                    <a href="{{route('article.show', compact('article'))}}" class="btn btn-primary mt-3 pulsante">Leggi</a>         
                 </div>
                 
                 @endforeach
