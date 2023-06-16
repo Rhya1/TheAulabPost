@@ -16,6 +16,15 @@
                         <div class="d-flex flex-row align-items-center justify-content-center mt-3">
                             <a href="{{route('article.index')}}" class="btn btn-primary pulsante">Torna indietro</a>
                         </div>
+                        <div class="d-flex flex-row align-items-center justify-content-center mt-3">
+                               @if (Auth::user() && Auth::user()->is_revisor)
+                               <hr>
+                               <a href="{{route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success">Accetta articolo</a>
+                               <a href="{{route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger">Rifiuta articolo</a>
+                            @endif
+                        </div>
+                     
+
                     </div>
                 </div>
             </div>

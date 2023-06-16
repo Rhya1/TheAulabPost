@@ -13,6 +13,12 @@
         <div class="alert alert-success text-center" role="alert">{{session('message')}}</div>
         @endif
     </div>
+
+    <div>
+        @if (session('status'))
+        <div class="alert alert-success text-center" role="alert">{{session('status')}}</div>
+        @endif
+    </div>
     
     <div class="container col-4">
         <div class="row">
