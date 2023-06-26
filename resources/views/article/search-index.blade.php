@@ -1,25 +1,10 @@
 <x-layout>
     
-    <div class="container-fluid p-5 mt-5 text-center">
+    <div class="container-fluid mt-5 p-5 text-center">
         <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <h1 class="display-1">The Aulab Post</h1>
-            </div>
+            <h1>Risultati ricerca : {{$query}}</h1>
         </div>
     </div>
-    
-    <div>
-        @if (session('message'))
-        <div class="alert alert-success text-center" role="alert">{{session('message')}}</div>
-        @endif
-    </div>
-
-    <div>
-        @if (session('status'))
-        <div class="alert alert-success text-center" role="alert">{{session('status')}}</div>
-        @endif
-    </div>
-    
     <div class="container col-4">
         <div class="row">
             @foreach ($articles as $article)
@@ -38,11 +23,6 @@
                         @else
                         <p class="small text-muted fst-italic text-capitalize">Nessuna Categoria</p>
                         @endif
-                        <p class="small text-muted fst-italic text-capitalize">
-                            @foreach ($article->tags as $tag)
-                            {{$tag->name}}
-                            @endforeach
-                        </p>
                     </div>
                     <div class="text-muted">
                         Redatto il {{$article->created_at->format('d/m/y')}} da {{$article->user->name}}

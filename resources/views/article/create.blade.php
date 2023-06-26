@@ -53,6 +53,11 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputBody1" class="form-label">Tags</label>
+                                <input class="form-control campi " name="tags" id="tags" value="{{old('tags')}}" placeholder="Inserisci i tags separati da una virgola">
+                            </div>
                             
                             
                             
