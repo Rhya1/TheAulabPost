@@ -24,7 +24,6 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="mb-3">
                                 <label class="form-label">Ricordati di me</label>
                                 <input type="checkbox" name="remember">
@@ -38,6 +37,9 @@
                                 {{ __('Password dimenticata?')}}
                             </a>
                             @endif
+                            <div class="d-flex justify-content-start">
+                                <a class="btn btn-link" href="{{ url('auth/google') }}">Accedi con Google</a>
+                            </div>
                         </form>
                     </div>
                 </div>

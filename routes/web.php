@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\GoogleLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,6 @@ Route::middleware('is_revisor')->group(function () {
 });
 
 Route::get('/article/search',[ArticleController::class, 'search'])->name('article.search');
+
+Route::get('auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
