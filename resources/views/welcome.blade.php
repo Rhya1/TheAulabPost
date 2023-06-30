@@ -33,6 +33,7 @@
                     <div class="mb-5">
                         <h5 class="card-title mb-1">{{$article->title}}</h5>
                         <div class="text-muted">{{$article->subtitle}}</div>
+                        <p class="small text-muted fst-italic text-capitalize">Tempo di lettura :{{$article->readDuration()}}</p>
                         @if($article->category)
                         <p class="small text-muted fst-italic text-capitalize">{{$article->category->name}}</p>
                         @else

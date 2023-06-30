@@ -51,7 +51,7 @@ class AdminController extends Controller
     public function deleteTag(Tag $tag){
 
         foreach($tag->articles as $article){
-            $article->tag()->detach($tag);
+            $article->tags()->detach($tag);
         }
 
         $tag->delete();

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\WriterController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\GoogleLoginController;
@@ -24,14 +25,17 @@ Route::middleware(['is_writer'])->group(function () {
     
     Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
     Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
-    Route::get('writer/dashboard', [RevisorController::class, 'dashboard'])->name('writer.dashboard');
+/*     Route::get('writer/dashboard', [RevisorController::class, 'dashboard'])->name('writer.dashboard');
+ */
+    Route::get('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('article.update');
+    Route::delete('/article/{article}/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
 
-    
 });
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 
-Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/article/show/{article:slug}', [ArticleController::class, 'show'])->name('article.show');
 
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
 
@@ -54,6 +58,10 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
 
     Route::post('/create/category', [AdminController::class, 'createCategory'])->name('admin.createCategory');
 
+});
+
+Route::prefix('writer')->middleware('is_writer')->group(function(){
+    Route::get('/dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
 });
 
 Route::middleware('is_revisor')->group(function () {

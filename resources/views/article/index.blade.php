@@ -24,6 +24,7 @@
                         <p class="small text-muted fst-italic text-capitalize">Nessuna Categoria</p>
                         @endif
                     </div>
+                    <p class="small text-muted fst-italic text-capitalize">Tempo di lettura :{{$article->readDuration()}}</p>
                     <div class="text-muted">
                         Redatto il {{$article->created_at->format('d/m/y')}} da {{$article->user->name}}
                     </div>

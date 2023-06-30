@@ -10,6 +10,7 @@
                             <img src="{{Storage::url($article->image)}}" alt="img" style="width:100%">
                             <h5 class="card-title">{{$article->subtitle}}</h5>
                         </div>
+                        <p class="small text-muted fst-italic text-capitalize">Tempo di lettura :{{$article->readDuration()}}</p>
                         <div class="form-group mt-4">
                             <p class="card-text">{{$article->body}}</p>
                         </div>
