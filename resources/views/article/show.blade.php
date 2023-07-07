@@ -5,7 +5,7 @@
             <div class="col-md-5">
                 <div class="card">
                     <h2 class="card-title text-center">{{$article->title}}</h2>
-                    <div class="card-body py-md-4">
+                    <div class="card-body py-md-4 shadow-lg">
                         <div class="form-group">
                             <img src="{{Storage::url($article->image)}}" alt="img" style="width:100%">
                             <h5 class="card-title">{{$article->subtitle}}</h5>

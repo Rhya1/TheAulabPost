@@ -7,7 +7,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Document</title>
+    <title>The Aulab Post</title>
 </head>
 <body>
     
@@ -17,5 +17,7 @@
     <div>
         {{$slot}}
     </div>
+
+    
 </body>
 </html>

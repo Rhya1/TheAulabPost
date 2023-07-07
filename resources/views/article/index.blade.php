@@ -9,7 +9,7 @@
         <div class="row">
             @foreach ($articles as $article)
             <div class="card text-center border-0">
-                <div class="card-body">
+                <div class="card-body shadow-lg">
                     <div class="card-card-avatar mb-4">
                         <div class="card-avatar avatar-border two">
                             <img class="card-img-top" src="{{Storage::url($article->image)}}" alt="img" width="200" height="400">
